@@ -15,9 +15,5 @@ public class MyspringbootdemoApplication {
 
 		
 	}
-	@GetMapping("/")
-	public String hello(){
-		return "This is testing";
-	}
 
 }
