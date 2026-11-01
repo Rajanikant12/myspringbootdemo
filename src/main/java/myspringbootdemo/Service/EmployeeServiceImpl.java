@@ -4,6 +4,9 @@ import myspringbootdemo.Entity.EmployeeEntity;
 import myspringbootdemo.Repository.EmployeeRepository;
 import myspringbootdemo.Service.EmployeeService;
 import org.springframework.stereotype.Service;
+
+import jakarta.transaction.Transactional;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -16,10 +19,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
-
+    @Transactional
     @Override
     public EmployeeEntity saveEmployee(EmployeeEntity employee) {
-        return employeeRepository.save(employee);
+        employee.setId(null);
+        return employeeRepository.saveAndFlush(employee);
     }
 
     @Override

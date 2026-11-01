@@ -1,20 +1,33 @@
 ### Test Home Endpoint
 GET http://localhost:8080/test
 
-
-### 
-
 ### Create a New Employee
 POST http://localhost:8080/api/employees
 Content-Type: application/json
 
 {
-  "id": 1,
   "name": "Jane Doe",
-  "designation": "Cloud Architect"
+  "designation": " Architect"
 }
 
 ###
-
 ### Fetch All Employees
 GET http://localhost:8080/api/employees
+
+###
+### Fetch Employee by ID
+GET http://localhost:8080/api/employees/4
+
+###
+### Update Employee by ID
+PUT http://localhost:8080/api/employees/4
+Content-Type: application/json
+
+{
+  "name": "Jane Smith",
+  "designation": "Senior Cloud DevOps"
+}
+
+###
+### Delete Employee by ID
+DELETE http://localhost:8080/api/employees/1
